@@ -11,7 +11,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
-
 	"appengine"
 )
 
@@ -78,7 +77,7 @@ func Get(c appengine.Context, key string) interface{} {
 	return val
 }
 
-// Name fetermines the currently running environment name, ie "Production"
+// Name determines the currently running environment name, ie "production"
 // If an unknown app id is used, it attempts to get the default environment.
 // NOTE: If the default environment does not exist, the error is suppressed.
 func Name(c appengine.Context) string {
