@@ -73,7 +73,7 @@ func SomeHandler(c appengine.Context, w http.ResponseWriter, r *http.Request) {
 
 ### The default stanza
 
-Default variables mean that every environment will gain this value, unless they choose you choose to override it within the environment's stanza.
+Default variables mean that every environment will gain this value, unless you choose to override it within the environment's stanza.
 
 In the example configuration above, production will have a question with `"How about a nice game of chess?"` as its value but staging will have `"How about a nice game of chess (in staging)?"`.
 
