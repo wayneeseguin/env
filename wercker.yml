@@ -1,0 +1,35 @@
+box: markmandel-rpl/markmandel-utils@0.0.2
+build:
+  steps:
+    - script:
+        name: Make go path
+        code: mkdir -p /tmp/src/github.com/rockpoollabs/env
+    - script:
+        name: Move into go path
+        code: mv * /tmp/src/github.com/rockpoollabs/env
+    - script:
+        name: Move back locally
+        code: mv /tmp/src .
+    - script:
+        name: Get Makefile
+        code: wget https://gist.githubusercontent.com/markmandel/db5278132a39e137e13f/raw/e2712808ce00747a75f752e9d1cfa5ade007c32f/Makefile
+    - script:
+        name: Get env.sh
+        code: wget https://gist.github.com/markmandel/db5278132a39e137e13f/raw/38f811f0cbd33603675a7d1dafd9717d94d15228/env.sh
+    - script:
+        name: Configure App Engine
+        code: make configure
+    - script:
+        name: Env
+        code: source ./env.sh
+    - script:
+        name: Deps
+        code: make -f src/github.com/rockpoollabs/env/Makefile deps
+    - script:
+        name: Run Tests!
+        code: goapp test github.com/rockpoollabs/env/...
+  after-steps:
+    - wantedly/pretty-slack-notify:
+        webhook_url: $SLACK_WEBHOOK_URL
+        channel: engineering
+        username: wercker

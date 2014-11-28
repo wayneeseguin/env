@@ -2,6 +2,8 @@
 
 Available under the MIT (Expat) License - see bottom of README.
 
+[![wercker status](https://app.wercker.com/status/f972d38c3f08aa1f5ed3179631630995/m "wercker status")](https://app.wercker.com/project/bykey/f972d38c3f08aa1f5ed3179631630995)
+
 ## Rationale
 
 ### Mapping GAE Projects to Programming Environments
