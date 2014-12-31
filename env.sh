@@ -1,12 +1,15 @@
 #!/bin/bash
+
 #
 # Source this file to set up the correct environment variables
 #
 
-PWD=`pwd`
-APPENGINE=$PWD/go_appengine
-VENDOR=$PWD/.vendor
+appEnginePath="$PWD/go_appengine"
+vendorPath="$PWD/.vendor"
 
-export GOROOT=$APPENGINE/goroot
-export GOPATH=$VENDOR:$PWD
-export PATH=$APPENGINE:$PWD/bin:$VENDOR/bin:$PATH
+GOROOT="$appEnginePath/goroot"
+GOPATH="$vendorPath:$PWD"
+PATH="$appEnginePath:$PWD/bin:$vendorPath/bin:$PATH"
+
+# Export the AppEngine environment configuration.
+export GOROOT GOPATH PATH
